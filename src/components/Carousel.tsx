@@ -414,7 +414,7 @@ export default function Carousel() {
                         />
                       </motion.div>
 
-                      <div className="absolute bottom-[30%] left-0 right-0">
+                      <div className="absolute bottom-[25%] left-0 right-0">
                         <div className="flex justify-center items-center gap-4 sm:gap-5 md:gap-6">
                           {colorConfig.map((colorItem) => {
                             const isAvailable = !colorItem.availableFor || 
