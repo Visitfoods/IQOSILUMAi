@@ -9,25 +9,15 @@ export default function CameraBackground() {
 
   const setupCamera = async () => {
     try {
-      // Logs para debug
       console.log("Iniciando configuração da câmera...");
-      console.log("Ambiente:", {
-        protocol: window.location.protocol,
-        host: window.location.host,
-        isSecure: window.isSecureContext,
-        userAgent: window.navigator.userAgent
-      });
-
-      // Verifica se o navegador suporta getUserMedia
+      
       if (!navigator.mediaDevices?.getUserMedia) {
         throw new Error("Este navegador não suporta acesso à câmera");
       }
 
-      // Solicita acesso à câmera com configurações específicas para móvel
-      console.log("Solicitando acesso à câmera...");
       const stream = await navigator.mediaDevices.getUserMedia({
         video: {
-          facingMode: 'user', // Usa a câmera frontal
+          facingMode: 'user',
           width: { ideal: 1280 },
           height: { ideal: 720 }
         },
@@ -38,8 +28,6 @@ export default function CameraBackground() {
 
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
-        
-        // Tenta iniciar o vídeo imediatamente
         try {
           await videoRef.current.play();
           console.log("Vídeo iniciado com sucesso!");
@@ -47,7 +35,8 @@ export default function CameraBackground() {
           setError(null);
         } catch (e) {
           console.error("Erro ao iniciar playback:", e);
-          setError("Erro ao iniciar vídeo. Toque na tela para tentar novamente.");
+          setError("Erro ao iniciar vídeo.");
+          setHasPermission(false);
         }
       }
     } catch (err) {
@@ -58,11 +47,9 @@ export default function CameraBackground() {
         if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
           errorMessage = "Acesso à câmera negado. Por favor, permita o acesso nas configurações do navegador.";
         } else if (err.name === 'NotFoundError') {
-          errorMessage = "Nenhuma câmera encontrada. Verifique se há uma câmera conectada.";
+          errorMessage = "Nenhuma câmera encontrada.";
         } else if (err.name === 'NotReadableError' || err.name === 'AbortError') {
-          errorMessage = "Câmera em uso por outro aplicativo ou inacessível.";
-        } else {
-          errorMessage = `Erro: ${err.message}`;
+          errorMessage = "Câmera em uso por outro aplicativo.";
         }
       }
       
@@ -72,7 +59,6 @@ export default function CameraBackground() {
   };
 
   useEffect(() => {
-    // Inicia a câmera automaticamente ao montar o componente
     setupCamera();
 
     return () => {
@@ -89,18 +75,7 @@ export default function CameraBackground() {
       <div className="fixed inset-0 bg-gradient-to-b from-gray-900 to-black">
         <div className="fixed inset-0 flex items-center justify-center text-white text-center p-4">
           <div className="animate-pulse">
-            <p className="text-lg font-semibold mb-2">A aguardar acesso à câmera...</p>
-            <p className="text-sm mt-2 opacity-75">
-              Se aparecer um diálogo de permissão, por favor aceite.
-              <br />
-              Se não aparecer, verifique as permissões do seu navegador.
-            </p>
-            <button
-              onClick={setupCamera}
-              className="mt-4 px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-white"
-            >
-              Tentar Novamente
-            </button>
+            <p className="text-lg font-semibold">A aguardar acesso à câmera...</p>
           </div>
         </div>
       </div>
@@ -113,23 +88,7 @@ export default function CameraBackground() {
       <div className="fixed inset-0 bg-gradient-to-b from-gray-900 to-black">
         <div className="fixed inset-0 flex flex-col items-center justify-center text-white text-center p-4">
           <div>
-            {error ? (
-              <>
-                <p className="text-red-400 text-lg font-semibold mb-2">Erro na câmera:</p>
-                <p className="mb-4">{error}</p>
-              </>
-            ) : (
-              <p className="mb-4 text-lg">Acesso à câmera negado</p>
-            )}
-            <p className="text-sm opacity-75 mb-4">
-              Verifique as permissões da câmera nas configurações do seu navegador
-            </p>
-            <button
-              onClick={setupCamera}
-              className="px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-white"
-            >
-              Tentar Novamente
-            </button>
+            <p className="text-red-400 text-lg font-semibold">{error}</p>
           </div>
         </div>
       </div>
@@ -139,7 +98,6 @@ export default function CameraBackground() {
   // Câmera ativa
   return (
     <div className="fixed inset-0 -z-20 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-50" />
       <video
         ref={videoRef}
         autoPlay
@@ -147,7 +105,7 @@ export default function CameraBackground() {
         muted
         className="absolute inset-0 min-w-full min-h-full w-auto h-auto object-cover transform scale-x-[-1]"
       />
-      <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-0 bg-black/20" />
     </div>
   );
 } 
