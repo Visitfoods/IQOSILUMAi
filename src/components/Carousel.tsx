@@ -120,7 +120,7 @@ export default function Carousel() {
         case "Midnight":
           return "bg-[#131d2b]";
         case "Breeze":
-          return "bg-[#275459]";
+          return "bg-[#82aaae]";
         case "Leaf":
           return "bg-[#0f2e27]";
         case "Terracotta":
@@ -138,7 +138,7 @@ export default function Carousel() {
         case "Breeze":
           return "bg-[#4A919E]";
         case "Leaf":
-          return "bg-[#1E3932]";
+          return "bg-[#8a8e28]";
         case "Terracotta":
           return "bg-[#A75D5D]";
         case "Violet":
