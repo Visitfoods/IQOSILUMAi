@@ -18,8 +18,8 @@ export default function CameraBackground() {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: {
           facingMode: 'user',
-          width: { ideal: 1280 },
-          height: { ideal: 720 }
+          width: { ideal: 1920 },
+          height: { ideal: 1080 }
         },
         audio: false
       });
@@ -28,16 +28,19 @@ export default function CameraBackground() {
 
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
-        try {
-          await videoRef.current.play();
-          console.log("Vídeo iniciado com sucesso!");
-          setHasPermission(true);
-          setError(null);
-        } catch (e) {
-          console.error("Erro ao iniciar playback:", e);
-          setError("Erro ao iniciar vídeo.");
-          setHasPermission(false);
-        }
+        videoRef.current.onloadedmetadata = () => {
+          videoRef.current?.play()
+            .then(() => {
+              console.log("Vídeo iniciado com sucesso!");
+              setHasPermission(true);
+              setError(null);
+            })
+            .catch((e) => {
+              console.error("Erro ao iniciar playback:", e);
+              setError("Erro ao iniciar vídeo.");
+              setHasPermission(false);
+            });
+        };
       }
     } catch (err) {
       console.error("Erro ao configurar câmera:", err);
@@ -59,39 +62,39 @@ export default function CameraBackground() {
   };
 
   useEffect(() => {
-    setupCamera();
+    let mounted = true;
+
+    const initCamera = async () => {
+      await setupCamera();
+    };
+
+    initCamera();
 
     return () => {
+      mounted = false;
       if (videoRef.current?.srcObject) {
         const stream = videoRef.current.srcObject as MediaStream;
-        stream.getTracks().forEach(track => track.stop());
+        stream.getTracks().forEach(track => {
+          track.stop();
+          stream.removeTrack(track);
+        });
+        videoRef.current.srcObject = null;
       }
     };
   }, []);
 
-  // Estado inicial - aguardando permissão
-  if (hasPermission === null) {
-    return (
-      <div className="fixed inset-0 flex items-center justify-center text-white text-center p-4">
-        <div className="animate-pulse">
-          <p className="text-lg font-semibold">A aguardar acesso à câmera...</p>
-        </div>
-      </div>
-    );
-  }
-
   // Estado de erro - permissão negada ou outro erro
   if (hasPermission === false) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center text-white text-center p-4">
+      <div className="fixed inset-0 flex items-center justify-center text-white text-center p-4 bg-black">
         <p className="text-red-400 text-lg font-semibold">{error}</p>
       </div>
     );
   }
 
-  // Câmera ativa
+  // Câmera ativa ou aguardando permissão
   return (
-    <div className="fixed inset-0 -z-10">
+    <div className="fixed inset-0 w-full h-full bg-black">
       <video
         ref={videoRef}
         autoPlay
