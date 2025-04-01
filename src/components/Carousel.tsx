@@ -15,8 +15,8 @@ type ColorVariant = "Breeze" | "Midnight" | "Leaf" | "Terracotta" | "Violet";
 
 const machines: Machine[] = [
   { id: 1, name: "ILUMAi BREEZE", image: "/IMG/ILUMAi/ILUMAi_BREEZE.png", baseModel: "ILUMAi" },
-  { id: 2, name: "ILUMAi PRIME", image: "/IMG/ILUMAi/ILUMAi_PRIME.png", baseModel: "ILUMAi" },
-  { id: 3, name: "ILUMAi PRIME ONE", image: "/IMG/ILUMAi/ILUMAi_PRIME_ONE.png", baseModel: "ILUMAi" },
+  { id: 2, name: "ILUMAi PRIME", image: "/IMG/ILUMAi-PRIME/ILUMAi-PRIME_BREEZE.png", baseModel: "ILUMAi-PRIME" },
+  { id: 3, name: "ILUMAi PRIME ONE", image: "/IMG/ILUMAi-ONE/ILUMAi-ONE_BREEZE.png", baseModel: "ILUMAi-ONE" },
 ];
 
 const colorConfig = [
