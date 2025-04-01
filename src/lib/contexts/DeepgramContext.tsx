@@ -17,6 +17,8 @@ interface DeepgramContextType {
   connectionState: SOCKET_STATES;
   realtimeTranscript: string;
   error: string | null;
+  startRecording: () => Promise<void>;
+  stopRecording: () => Promise<string>;
 }
 
 const DeepgramContext = createContext<DeepgramContextType | undefined>(undefined);
@@ -37,6 +39,8 @@ const DeepgramContextProvider: FunctionComponent<DeepgramContextProviderProps> =
   const [realtimeTranscript, setRealtimeTranscript] = useState("");
   const [error, setError] = useState<string | null>(null);
   const audioRef = useRef<MediaRecorder | null>(null);
+  const [mediaRecorder, setMediaRecorder] = useState<MediaRecorder | null>(null);
+  const [audioChunks, setAudioChunks] = useState<Blob[]>([]);
 
   const connectToDeepgram = async () => {
     try {
@@ -101,6 +105,42 @@ const DeepgramContextProvider: FunctionComponent<DeepgramContextProviderProps> =
     setConnectionState(SOCKET_STATES.closed);
   };
 
+  const startRecording = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const recorder = new MediaRecorder(stream);
+      
+      recorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          setAudioChunks(prev => [...prev, event.data]);
+        }
+      };
+
+      recorder.start();
+      setMediaRecorder(recorder);
+    } catch (error) {
+      console.error('Erro ao iniciar gravação:', error);
+    }
+  };
+
+  const stopRecording = async (): Promise<string> => {
+    return new Promise((resolve) => {
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        mediaRecorder.onstop = async () => {
+          const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+          // Aqui você pode implementar a chamada para a API do Deepgram
+          // Por enquanto, vamos apenas retornar uma mensagem de placeholder
+          resolve('Transcrição será implementada em breve');
+          setAudioChunks([]);
+        };
+        mediaRecorder.stop();
+        mediaRecorder.stream.getTracks().forEach(track => track.stop());
+      } else {
+        resolve('');
+      }
+    });
+  };
+
   return (
     <DeepgramContext.Provider
       value={{
@@ -109,6 +149,8 @@ const DeepgramContextProvider: FunctionComponent<DeepgramContextProviderProps> =
         connectionState,
         realtimeTranscript,
         error,
+        startRecording,
+        stopRecording,
       }}
     >
       {children}
