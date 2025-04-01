@@ -17,7 +17,7 @@ export default function CameraBackground() {
 
       const stream = await navigator.mediaDevices.getUserMedia({
         video: {
-          facingMode: 'user',
+          facingMode: 'environment',
           width: { ideal: 1920 },
           height: { ideal: 1080 }
         },
@@ -101,8 +101,8 @@ export default function CameraBackground() {
         playsInline
         muted
         className="w-full h-full object-cover"
-        style={{ transform: 'scaleX(-1)' }}
       />
+      <div className="fixed inset-0 bg-black/10" /> {/* Overlay preto com 10% de opacidade */}
     </div>
   );
 } 
