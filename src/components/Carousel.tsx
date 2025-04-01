@@ -14,9 +14,9 @@ interface Machine {
 type ColorVariant = "Breeze" | "Midnight" | "Leaf" | "Terracotta" | "Violet";
 
 const machines: Machine[] = [
-  { id: 1, name: "ILUMAi BREEZE", image: "/IQOSILUMAi/IMG/ILUMAi/ILUMAi_BREEZE.png", baseModel: "ILUMAi" },
-  { id: 2, name: "ILUMAi PRIME", image: "/IQOSILUMAi/IMG/ILUMAi/ILUMAi_PRIME.png", baseModel: "ILUMAi" },
-  { id: 3, name: "ILUMAi PRIME ONE", image: "/IQOSILUMAi/IMG/ILUMAi/ILUMAi_PRIME_ONE.png", baseModel: "ILUMAi" },
+  { id: 1, name: "ILUMAi BREEZE", image: "/IMG/ILUMAi/ILUMAi_BREEZE.png", baseModel: "ILUMAi" },
+  { id: 2, name: "ILUMAi PRIME", image: "/IMG/ILUMAi/ILUMAi_PRIME.png", baseModel: "ILUMAi" },
+  { id: 3, name: "ILUMAi PRIME ONE", image: "/IMG/ILUMAi/ILUMAi_PRIME_ONE.png", baseModel: "ILUMAi" },
 ];
 
 const colorConfig = [
@@ -104,14 +104,13 @@ export default function Carousel() {
 
   // Gera o caminho da imagem baseado no modelo e cor selecionada
   const getImagePath = (machine: Machine, colorVariant: ColorVariant) => {
-    // Tratamento especial para cores específicas
     let colorForPath = colorVariant.toUpperCase();
     if (colorVariant === "Terracotta") {
       colorForPath = "TERRACOTA";
     } else if (colorVariant === "Violet") {
       colorForPath = "-VIOLET";
     }
-    return `/IQOSILUMAi/IMG/${machine.baseModel}/${machine.baseModel}_${colorForPath}.png`;
+    return `/IMG/${machine.baseModel}/${machine.baseModel}_${colorForPath}.png`;
   };
 
   const variants = {
@@ -351,7 +350,7 @@ export default function Carousel() {
                     <div className="mt-6 sm:mt-8 md:mt-10 flex justify-center items-start gap-6 sm:gap-8 md:gap-10">
                       <div className="flex flex-col items-center">
                         <Image
-                          src="/IQOSILUMAi/Icons/FlexPuff.svg"
+                          src="/Icons/FlexPuff.svg"
                           alt="Flex Puff"
                           width={32}
                           height={32}
@@ -362,7 +361,7 @@ export default function Carousel() {
 
                       <div className="flex flex-col items-center">
                         <Image
-                          src="/IQOSILUMAi/Icons/FlexBattery.svg"
+                          src="/Icons/FlexBattery.svg"
                           alt="Flex Battery"
                           width={32}
                           height={32}
@@ -373,7 +372,7 @@ export default function Carousel() {
 
                       <div className="flex flex-col items-center">
                         <Image
-                          src="/IQOSILUMAi/Icons/Modo Pausa.svg"
+                          src="/Icons/Modo Pausa.svg"
                           alt="Modo Pausa"
                           width={32}
                           height={32}
@@ -384,7 +383,7 @@ export default function Carousel() {
 
                       <div className="flex flex-col items-center">
                         <Image
-                          src="/IQOSILUMAi/Icons/EcraTatil.svg"
+                          src="/Icons/EcraTatil.svg"
                           alt="Ecrã Tátil"
                           width={32}
                           height={32}
