@@ -113,6 +113,37 @@ export default function Carousel() {
     return `/IMG/${machine.baseModel}/${machine.baseModel}_${colorForPath}.png`;
   };
 
+  const getColorStyle = (colorVariant: ColorVariant, machine: Machine) => {
+    if (machine.baseModel === "ILUMAi-PRIME") {
+      switch (colorVariant) {
+        case "Midnight":
+          return "bg-[#131d2b]";
+        case "Breeze":
+          return "bg-[#275459]";
+        case "Leaf":
+          return "bg-[#0f2e27]";
+        case "Terracotta":
+          return "bg-[#2d1e27]";
+        default:
+          return "";
+      }
+    } else {
+      // Cores originais para outros modelos
+      switch (colorVariant) {
+        case "Midnight":
+          return "bg-[#1E1E1E]";
+        case "Breeze":
+          return "bg-[#4A919E]";
+        case "Leaf":
+          return "bg-[#1E3932]";
+        case "Terracotta":
+          return "bg-[#A75D5D]";
+        default:
+          return "";
+      }
+    }
+  };
+
   const variants = {
     enter: (direction: "left" | "right") => ({
       x: direction === "right" ? "100%" : "-100%",
@@ -427,12 +458,15 @@ export default function Carousel() {
                             return (
                               <motion.button
                                 key={colorItem.variant}
-                                className={`w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full transition-all duration-200 focus:outline-none ${selectedColor === colorItem.variant ? 'ring-1 ring-white ring-offset-1 scale-110' : 'opacity-90 hover:opacity-100'}`}
-                                style={{ backgroundColor: colorItem.color }}
+                                className={`w-8 h-8 rounded-full border-2 ${
+                                  selectedColor === colorItem.variant
+                                    ? "border-white scale-110"
+                                    : "border-transparent"
+                                } ${getColorStyle(colorItem.variant as ColorVariant, selectedMachine)} transition-all duration-300`}
                                 onClick={() => handleColorChange(colorItem.variant as ColorVariant)}
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
-                                aria-label={`Selecionar cor ${colorItem.label}`}
+                                aria-label={`Cor ${colorItem.label}`}
                               />
                             );
                           })}
