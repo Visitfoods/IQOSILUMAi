@@ -91,13 +91,13 @@ export default function CameraBackground() {
 
   // Câmera ativa
   return (
-    <div className="fixed inset-0 -z-20 overflow-hidden">
+    <div className="fixed inset-0 -z-20">
       <video
         ref={videoRef}
         autoPlay
         playsInline
         muted
-        className="absolute inset-0 min-w-full min-h-full w-auto h-auto object-cover transform scale-x-[-1]"
+        className="w-full h-full object-cover"
       />
     </div>
   );
