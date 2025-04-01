@@ -1,18 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/IQOSILUMAi',
-  assetPrefix: '/IQOSILUMAi/',
   images: {
     unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'visitfoods.github.io',
-        pathname: '/IQOSILUMAi/**'
+        hostname: 'iqosilumai.com',
+        pathname: '/**'
       }
-    ],
-    path: '/IQOSILUMAi/_next/image'
+    ]
   },
   trailingSlash: true
 }

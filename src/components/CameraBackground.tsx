@@ -72,11 +72,9 @@ export default function CameraBackground() {
   // Estado inicial - aguardando permissão
   if (hasPermission === null) {
     return (
-      <div className="fixed inset-0 bg-gradient-to-b from-gray-900 to-black">
-        <div className="fixed inset-0 flex items-center justify-center text-white text-center p-4">
-          <div className="animate-pulse">
-            <p className="text-lg font-semibold">A aguardar acesso à câmera...</p>
-          </div>
+      <div className="fixed inset-0 flex items-center justify-center text-white text-center p-4">
+        <div className="animate-pulse">
+          <p className="text-lg font-semibold">A aguardar acesso à câmera...</p>
         </div>
       </div>
     );
@@ -85,12 +83,8 @@ export default function CameraBackground() {
   // Estado de erro - permissão negada ou outro erro
   if (hasPermission === false) {
     return (
-      <div className="fixed inset-0 bg-gradient-to-b from-gray-900 to-black">
-        <div className="fixed inset-0 flex flex-col items-center justify-center text-white text-center p-4">
-          <div>
-            <p className="text-red-400 text-lg font-semibold">{error}</p>
-          </div>
-        </div>
+      <div className="fixed inset-0 flex items-center justify-center text-white text-center p-4">
+        <p className="text-red-400 text-lg font-semibold">{error}</p>
       </div>
     );
   }
@@ -105,7 +99,6 @@ export default function CameraBackground() {
         muted
         className="absolute inset-0 min-w-full min-h-full w-auto h-auto object-cover transform scale-x-[-1]"
       />
-      <div className="absolute inset-0 bg-black/20" />
     </div>
   );
 } 
