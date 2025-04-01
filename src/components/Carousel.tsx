@@ -401,7 +401,7 @@ export default function Carousel() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="relative w-[45%] sm:w-[40%] md:w-[35%] aspect-square mt-32"
+                        className="relative w-[45%] sm:w-[40%] md:w-[35%] aspect-square mt-36"
                       >
                         <Image
                           src={getImagePath(selectedMachine, selectedColor)}
@@ -414,7 +414,7 @@ export default function Carousel() {
                         />
                       </motion.div>
 
-                      <div className="absolute bottom-[18%] left-0 right-0">
+                      <div className="absolute bottom-[16%] left-0 right-0">
                         <div className="flex justify-center items-center gap-4 sm:gap-5 md:gap-6">
                           {colorConfig.map((colorItem) => {
                             const isAvailable = !colorItem.availableFor || 
