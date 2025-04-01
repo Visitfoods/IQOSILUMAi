@@ -1,12 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '',
-  assetPrefix: '',
+  basePath: '/IQOSILUMAi',
+  assetPrefix: '/IQOSILUMAi/',
   images: {
-    unoptimized: true
+    unoptimized: true,
+    domains: ['visitfoods.github.io']
   },
-  trailingSlash: true
+  trailingSlash: true,
+  distDir: 'docs'
 }
 
 module.exports = nextConfig 
