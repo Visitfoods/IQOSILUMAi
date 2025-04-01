@@ -351,7 +351,7 @@ export default function Carousel() {
                     <div className="mt-6 sm:mt-8 md:mt-10 flex justify-center items-start gap-6 sm:gap-8 md:gap-10">
                       <div className="flex flex-col items-center">
                         <Image
-                          src="/Icons/FlexPuff.svg"
+                          src="/IQOSILUMAi/Icons/FlexPuff.svg"
                           alt="Flex Puff"
                           width={32}
                           height={32}
@@ -362,7 +362,7 @@ export default function Carousel() {
 
                       <div className="flex flex-col items-center">
                         <Image
-                          src="/Icons/FlexBattery.svg"
+                          src="/IQOSILUMAi/Icons/FlexBattery.svg"
                           alt="Flex Battery"
                           width={32}
                           height={32}
@@ -373,7 +373,7 @@ export default function Carousel() {
 
                       <div className="flex flex-col items-center">
                         <Image
-                          src="/Icons/Modo Pausa.svg"
+                          src="/IQOSILUMAi/Icons/Modo Pausa.svg"
                           alt="Modo Pausa"
                           width={32}
                           height={32}
@@ -384,7 +384,7 @@ export default function Carousel() {
 
                       <div className="flex flex-col items-center">
                         <Image
-                          src="/Icons/EcraTatil.svg"
+                          src="/IQOSILUMAi/Icons/EcraTatil.svg"
                           alt="Ecrã Tátil"
                           width={32}
                           height={32}
