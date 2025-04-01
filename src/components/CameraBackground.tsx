@@ -31,13 +31,16 @@ export default function CameraBackground() {
 
         // Tenta usar o getUserMedia legado se necessário
         if (!navigator.mediaDevices.getUserMedia) {
-          const legacyGetUserMedia = navigator.getUserMedia ||
+          const legacyGetUserMedia = (
+            // @ts-ignore
+            navigator.getUserMedia ||
             // @ts-ignore
             navigator.webkitGetUserMedia ||
             // @ts-ignore
             navigator.mozGetUserMedia ||
             // @ts-ignore
-            navigator.msGetUserMedia;
+            navigator.msGetUserMedia
+          );
 
           if (legacyGetUserMedia) {
             console.log("Usando API legada getUserMedia");
