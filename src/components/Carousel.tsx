@@ -395,7 +395,7 @@ export default function Carousel() {
 
                 <div className="absolute inset-0 flex flex-col items-center">
                   {selectedMachine && (
-                    <div className="relative w-full h-full flex flex-col items-center justify-end pb-[15%]">
+                    <div className="relative w-full h-full flex flex-col items-center justify-center">
                       <motion.div 
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -414,8 +414,8 @@ export default function Carousel() {
                         />
                       </motion.div>
 
-                      <div className="relative w-full flex justify-center mt-8 sm:mt-10 md:mt-12">
-                        <div className="flex justify-center items-center gap-3 sm:gap-4 md:gap-5">
+                      <div className="absolute bottom-[35%] left-0 right-0">
+                        <div className="flex justify-center items-center gap-4 sm:gap-5 md:gap-6">
                           {colorConfig.map((colorItem) => {
                             const isAvailable = !colorItem.availableFor || 
                                               colorItem.availableFor.includes(selectedMachine?.baseModel || "");
