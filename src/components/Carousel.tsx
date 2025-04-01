@@ -282,7 +282,7 @@ export default function Carousel() {
                     ))}
                   </AnimatePresence>
 
-                  <div className="absolute bottom-[15%] left-0 right-0 flex justify-center items-center space-x-48">
+                  <div className="absolute bottom-[25%] left-0 right-0 flex justify-center items-center space-x-24">
                     <button
                       onClick={() => !isAnimating && handleClick("left")}
                       className="p-2 text-white hover:text-gray-300 transition-colors"
@@ -299,7 +299,7 @@ export default function Carousel() {
                     </button>
                   </div>
 
-                  <div className="absolute bottom-[12%] left-0 right-0 flex justify-center">
+                  <div className="absolute bottom-[20%] left-0 right-0 flex justify-center">
                     <button
                       className="bg-white text-black px-8 py-2 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors"
                       onClick={handleDiscover}
