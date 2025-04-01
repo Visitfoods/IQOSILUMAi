@@ -9,9 +9,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt">
-      <body>
-        <ClientLayout>{children}</ClientLayout>
+    <html lang="pt" className="h-full overflow-hidden">
+      <body className="h-full overflow-hidden">
+        <main className="relative h-screen overflow-hidden">
+          <ClientLayout>{children}</ClientLayout>
+        </main>
       </body>
     </html>
   );
