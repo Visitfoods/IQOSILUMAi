@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
 interface Machine {
   id: number;
@@ -281,65 +282,31 @@ export default function Carousel() {
                     ))}
                   </AnimatePresence>
 
-                  <motion.div 
-                    className="absolute bottom-[15%] left-1/2 transform -translate-x-1/2 flex items-center space-x-4 sm:space-x-6 md:space-x-8"
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                  >
-                    <motion.button
-                      className="bg-white/20 backdrop-blur-md text-white w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center focus:outline-none"
+                  <div className="absolute bottom-[15%] left-0 right-0 flex justify-between items-center px-4 sm:px-8">
+                    <button
                       onClick={() => !isAnimating && handleClick("left")}
-                      disabled={isAnimating}
-                      whileHover={{ scale: 1.1, backgroundColor: "rgba(255, 255, 255, 0.3)" }}
-                      whileTap={{ scale: 0.9 }}
+                      className="p-2 text-white hover:text-gray-300 transition-colors"
+                      aria-label="Anterior"
                     >
-                      <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        fill="none" 
-                        viewBox="0 0 24 24" 
-                        strokeWidth={2} 
-                        stroke="currentColor" 
-                        className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                      </svg>
-                    </motion.button>
-
-                    <motion.button
-                      className="bg-white/20 backdrop-blur-md text-white w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center focus:outline-none"
+                      <ChevronLeftIcon className="w-8 h-8 sm:w-10 sm:h-10" />
+                    </button>
+                    <button
                       onClick={() => !isAnimating && handleClick("right")}
-                      disabled={isAnimating}
-                      whileHover={{ scale: 1.1, backgroundColor: "rgba(255, 255, 255, 0.3)" }}
-                      whileTap={{ scale: 0.9 }}
+                      className="p-2 text-white hover:text-gray-300 transition-colors"
+                      aria-label="Próximo"
                     >
-                      <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        fill="none" 
-                        viewBox="0 0 24 24" 
-                        strokeWidth={2} 
-                        stroke="currentColor" 
-                        className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                      </svg>
-                    </motion.button>
-                  </motion.div>
+                      <ChevronRightIcon className="w-8 h-8 sm:w-10 sm:h-10" />
+                    </button>
+                  </div>
 
-                  <motion.div
-                    className="absolute bottom-[5%] left-1/2 transform -translate-x-1/2 z-20 pointer-events-auto"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                  >
-                    <motion.button
-                      className="bg-white/20 backdrop-blur-md text-white px-5 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-full font-semibold text-sm sm:text-base md:text-lg hover:bg-white/30 transition-colors focus:outline-none"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                  <div className="absolute bottom-[8%] left-0 right-0 flex justify-center">
+                    <button
+                      className="bg-white text-black px-8 py-2 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors"
                       onClick={handleDiscover}
                     >
                       Descobre
-                    </motion.button>
-                  </motion.div>
+                    </button>
+                  </div>
                 </div>
               </div>
             </motion.div>
