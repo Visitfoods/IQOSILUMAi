@@ -282,7 +282,7 @@ export default function Carousel() {
                     ))}
                   </AnimatePresence>
 
-                  <div className="absolute bottom-[35%] left-0 right-0 flex justify-center items-center space-x-24">
+                  <div className="absolute bottom-[30%] left-0 right-0 flex justify-center items-center space-x-24">
                     <button
                       onClick={() => !isAnimating && handleClick("left")}
                       className="p-2 text-white hover:text-gray-300 transition-colors"
@@ -414,7 +414,7 @@ export default function Carousel() {
                         />
                       </motion.div>
 
-                      <div className="absolute bottom-[35%] left-0 right-0">
+                      <div className="absolute bottom-[30%] left-0 right-0">
                         <div className="flex justify-center items-center gap-4 sm:gap-5 md:gap-6">
                           {colorConfig.map((colorItem) => {
                             const isAvailable = !colorItem.availableFor || 
