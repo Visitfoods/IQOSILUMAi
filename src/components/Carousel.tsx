@@ -350,49 +350,77 @@ export default function Carousel() {
                     </h2>
 
                     <div className="mt-6 sm:mt-8 md:mt-10 flex justify-center items-start gap-6 sm:gap-8 md:gap-10">
-                      <div className="flex flex-col items-center">
-                        <Image
-                          src="/Icons/FlexPuff.svg"
-                          alt="Flex Puff"
-                          width={32}
-                          height={32}
-                          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
-                        />
-                        <span className="mt-2 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Flex Puff</span>
-                      </div>
+                      {selectedMachine?.baseModel === "ILUMAi-ONE" ? (
+                        <>
+                          <div className="flex flex-col items-center">
+                            <Image
+                              src="/Icons/FlexPuff.svg"
+                              alt="Flex Puff"
+                              width={32}
+                              height={32}
+                              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
+                            />
+                            <span className="mt-2 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Flex Puff</span>
+                          </div>
 
-                      <div className="flex flex-col items-center">
-                        <Image
-                          src="/Icons/FlexBattery.svg"
-                          alt="Flex Battery"
-                          width={32}
-                          height={32}
-                          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
-                        />
-                        <span className="mt-2 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Flex Battery</span>
-                      </div>
+                          <div className="flex flex-col items-center">
+                            <Image
+                              src="/Icons/InicioAutomatico.svg"
+                              alt="Início Automático"
+                              width={32}
+                              height={32}
+                              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
+                            />
+                            <span className="mt-2 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Início Automático</span>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div className="flex flex-col items-center">
+                            <Image
+                              src="/Icons/FlexPuff.svg"
+                              alt="Flex Puff"
+                              width={32}
+                              height={32}
+                              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
+                            />
+                            <span className="mt-2 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Flex Puff</span>
+                          </div>
 
-                      <div className="flex flex-col items-center">
-                        <Image
-                          src="/Icons/Modo Pausa.svg"
-                          alt="Modo Pausa"
-                          width={32}
-                          height={32}
-                          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
-                        />
-                        <span className="mt-2 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Modo Pausa</span>
-                      </div>
+                          <div className="flex flex-col items-center">
+                            <Image
+                              src="/Icons/FlexBattery.svg"
+                              alt="Flex Battery"
+                              width={32}
+                              height={32}
+                              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
+                            />
+                            <span className="mt-2 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Flex Battery</span>
+                          </div>
 
-                      <div className="flex flex-col items-center">
-                        <Image
-                          src="/Icons/EcraTatil.svg"
-                          alt="Ecrã Tátil"
-                          width={32}
-                          height={32}
-                          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
-                        />
-                        <span className="mt-2 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Ecrã Tátil</span>
-                      </div>
+                          <div className="flex flex-col items-center">
+                            <Image
+                              src="/Icons/Modo Pausa.svg"
+                              alt="Modo Pausa"
+                              width={32}
+                              height={32}
+                              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
+                            />
+                            <span className="mt-2 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Modo Pausa</span>
+                          </div>
+
+                          <div className="flex flex-col items-center">
+                            <Image
+                              src="/Icons/EcraTatil.svg"
+                              alt="Ecrã Tátil"
+                              width={32}
+                              height={32}
+                              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
+                            />
+                            <span className="mt-2 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Ecrã Tátil</span>
+                          </div>
+                        </>
+                      )}
                     </div>
                   </div>
                 </motion.div>
