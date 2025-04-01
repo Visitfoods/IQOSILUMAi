@@ -2,6 +2,7 @@
 const nextConfig = {
   output: 'export',
   basePath: '/IQOSILUMAi',
+  assetPrefix: '/IQOSILUMAi/',
   images: {
     remotePatterns: [
       {
@@ -35,6 +36,7 @@ const nextConfig = {
       },
     ];
   },
+  trailingSlash: true,
 };
 
 export default nextConfig;
