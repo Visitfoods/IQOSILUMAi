@@ -5,7 +5,14 @@ const nextConfig = {
   assetPrefix: '/IQOSILUMAi/',
   images: {
     unoptimized: true,
-    domains: ['visitfoods.github.io']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'visitfoods.github.io',
+        pathname: '/IQOSILUMAi/**'
+      }
+    ],
+    path: '/IQOSILUMAi/_next/image'
   },
   trailingSlash: true
 }
