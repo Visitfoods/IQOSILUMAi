@@ -125,6 +125,8 @@ export default function Carousel() {
           return "bg-[#0f2e27]";
         case "Terracotta":
           return "bg-[#2d1e27]";
+        case "Violet":
+          return "bg-[#898FC8]";
         default:
           return "";
       }
@@ -139,6 +141,8 @@ export default function Carousel() {
           return "bg-[#1E3932]";
         case "Terracotta":
           return "bg-[#A75D5D]";
+        case "Violet":
+          return "bg-[#898FC8]";
         default:
           return "";
       }
