@@ -6,7 +6,6 @@ export default function CameraBackground() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [isStarted, setIsStarted] = useState(false);
 
   const setupCamera = async () => {
     try {
@@ -40,20 +39,16 @@ export default function CameraBackground() {
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
         
-        // Tenta iniciar o vídeo após um pequeno delay
-        setTimeout(() => {
-          if (videoRef.current) {
-            console.log("Tentando iniciar playback após delay...");
-            videoRef.current.play().catch(e => {
-              console.error("Erro ao iniciar playback:", e);
-              // Não lança o erro, apenas loga
-              setError("Erro ao iniciar vídeo. Toque na tela para tentar novamente.");
-            });
-          }
-        }, 1000);
-
-        setHasPermission(true);
-        setError(null);
+        // Tenta iniciar o vídeo imediatamente
+        try {
+          await videoRef.current.play();
+          console.log("Vídeo iniciado com sucesso!");
+          setHasPermission(true);
+          setError(null);
+        } catch (e) {
+          console.error("Erro ao iniciar playback:", e);
+          setError("Erro ao iniciar vídeo. Toque na tela para tentar novamente.");
+        }
       }
     } catch (err) {
       console.error("Erro ao configurar câmera:", err);
@@ -76,11 +71,9 @@ export default function CameraBackground() {
     }
   };
 
-  // Não inicia a câmera automaticamente
   useEffect(() => {
-    if (isStarted) {
-      setupCamera();
-    }
+    // Inicia a câmera automaticamente ao montar o componente
+    setupCamera();
 
     return () => {
       if (videoRef.current?.srcObject) {
@@ -88,26 +81,7 @@ export default function CameraBackground() {
         stream.getTracks().forEach(track => track.stop());
       }
     };
-  }, [isStarted]);
-
-  // Estado inicial - aguardando início
-  if (!isStarted) {
-    return (
-      <div className="fixed inset-0 bg-gradient-to-b from-gray-900 to-black">
-        <div className="fixed inset-0 flex items-center justify-center text-white text-center p-4">
-          <div>
-            <p className="text-lg font-semibold mb-4">Toque para iniciar a câmera</p>
-            <button
-              onClick={() => setIsStarted(true)}
-              className="px-6 py-3 bg-blue-500 hover:bg-blue-600 rounded-lg text-white text-lg"
-            >
-              Iniciar Câmera
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  }, []);
 
   // Estado inicial - aguardando permissão
   if (hasPermission === null) {
