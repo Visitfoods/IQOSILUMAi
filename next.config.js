@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/IQOSILUMAi',
-  assetPrefix: '/IQOSILUMAi/',
+  basePath: '',
+  assetPrefix: '',
   images: {
     unoptimized: true
   },
