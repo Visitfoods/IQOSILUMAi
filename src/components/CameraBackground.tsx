@@ -6,6 +6,7 @@ export default function CameraBackground() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [isStarted, setIsStarted] = useState(false);
 
   const setupCamera = async () => {
     try {
@@ -14,7 +15,8 @@ export default function CameraBackground() {
       console.log("Ambiente:", {
         protocol: window.location.protocol,
         host: window.location.host,
-        isSecure: window.isSecureContext
+        isSecure: window.isSecureContext,
+        userAgent: window.navigator.userAgent
       });
 
       // Verifica se o navegador suporta getUserMedia
@@ -22,10 +24,14 @@ export default function CameraBackground() {
         throw new Error("Este navegador não suporta acesso à câmera");
       }
 
-      // Solicita acesso à câmera com configurações básicas
+      // Solicita acesso à câmera com configurações específicas para móvel
       console.log("Solicitando acesso à câmera...");
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: true,
+        video: {
+          facingMode: 'user', // Usa a câmera frontal
+          width: { ideal: 1280 },
+          height: { ideal: 720 }
+        },
         audio: false
       });
 
@@ -33,13 +39,19 @@ export default function CameraBackground() {
 
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
-        videoRef.current.onloadedmetadata = () => {
-          console.log("Vídeo carregado, iniciando playback...");
-          videoRef.current?.play().catch(e => {
-            console.error("Erro ao iniciar playback:", e);
-            throw e;
-          });
-        };
+        
+        // Tenta iniciar o vídeo após um pequeno delay
+        setTimeout(() => {
+          if (videoRef.current) {
+            console.log("Tentando iniciar playback após delay...");
+            videoRef.current.play().catch(e => {
+              console.error("Erro ao iniciar playback:", e);
+              // Não lança o erro, apenas loga
+              setError("Erro ao iniciar vídeo. Toque na tela para tentar novamente.");
+            });
+          }
+        }, 1000);
+
         setHasPermission(true);
         setError(null);
       }
@@ -64,19 +76,38 @@ export default function CameraBackground() {
     }
   };
 
+  // Não inicia a câmera automaticamente
   useEffect(() => {
-    let isMounted = true;
-
-    setupCamera();
+    if (isStarted) {
+      setupCamera();
+    }
 
     return () => {
-      isMounted = false;
       if (videoRef.current?.srcObject) {
         const stream = videoRef.current.srcObject as MediaStream;
         stream.getTracks().forEach(track => track.stop());
       }
     };
-  }, []);
+  }, [isStarted]);
+
+  // Estado inicial - aguardando início
+  if (!isStarted) {
+    return (
+      <div className="fixed inset-0 bg-gradient-to-b from-gray-900 to-black">
+        <div className="fixed inset-0 flex items-center justify-center text-white text-center p-4">
+          <div>
+            <p className="text-lg font-semibold mb-4">Toque para iniciar a câmera</p>
+            <button
+              onClick={() => setIsStarted(true)}
+              className="px-6 py-3 bg-blue-500 hover:bg-blue-600 rounded-lg text-white text-lg"
+            >
+              Iniciar Câmera
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // Estado inicial - aguardando permissão
   if (hasPermission === null) {
@@ -133,7 +164,7 @@ export default function CameraBackground() {
 
   // Câmera ativa
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden">
+    <div className="fixed inset-0 -z-20 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-50" />
       <video
         ref={videoRef}
@@ -142,7 +173,7 @@ export default function CameraBackground() {
         muted
         className="absolute inset-0 min-w-full min-h-full w-auto h-auto object-cover transform scale-x-[-1]"
       />
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/30" />
     </div>
   );
 } 
