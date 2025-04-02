@@ -15,9 +15,9 @@ interface Machine {
 type ColorVariant = "Breeze" | "Midnight" | "Leaf" | "Terracotta" | "Violet";
 
 const machines: Machine[] = [
-  { id: 1, name: "ILUMA i BREEZE", image: "/IMG/ILUMAi/ILUMAi_BREEZE.png", baseModel: "ILUMAi" },
-  { id: 2, name: "ILUMA i ONE", image: "/IMG/ILUMAi/ILUMAi_ONE.png", baseModel: "ILUMAi-ONE" },
-  { id: 3, name: "ILUMA i PRIME", image: "/IMG/ILUMAi/ILUMAi_PRIME.png", baseModel: "ILUMAi-PRIME" },
+  { id: 1, name: "ILUMAi BREEZE", image: "/IMG/ILUMAi/ILUMAi_BREEZE.png", baseModel: "ILUMAi" },
+  { id: 2, name: "ILUMAi ONE", image: "/IMG/ILUMAi/ILUMAi_ONE.png", baseModel: "ILUMAi-ONE" },
+  { id: 3, name: "ILUMAi PRIME", image: "/IMG/ILUMAi/ILUMAi_PRIME.png", baseModel: "ILUMAi-PRIME" },
 ];
 
 const colorConfig = [
@@ -43,7 +43,8 @@ export default function Carousel() {
 
   // Função para formatar o nome do modelo de forma consistente
   const formatModelName = (baseModel: string) => {
-    return baseModel.replace('-', ' ');
+    // Substitui ILUMAi por ILUMA i no título
+    return baseModel.replace('ILUMAi', 'ILUMA i').replace('-', ' ');
   };
 
   const getPositionedMachines = () => {
