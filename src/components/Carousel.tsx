@@ -110,7 +110,7 @@ export default function Carousel() {
     if (colorVariant === "Terracotta") {
       colorForPath = "TERRACOTA";
     } else if (colorVariant === "Violet") {
-      colorForPath = "VIOLET";
+      colorForPath = "-VIOLET";
     }
     return `/IMG/${machine.baseModel}/${machine.baseModel}_${colorForPath}.png`;
   };
