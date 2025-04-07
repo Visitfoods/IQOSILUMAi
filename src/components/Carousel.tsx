@@ -226,7 +226,7 @@ export default function Carousel() {
                       className="text-white p-2 hover:text-gray-300 transition-colors"
                       aria-label="Voltar"
                     >
-                      <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rotate-90" />
+                      <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                     </button>
                   </div>
 
@@ -340,7 +340,7 @@ export default function Carousel() {
                       className="text-white p-2 hover:text-gray-300 transition-colors"
                       aria-label="Voltar"
                     >
-                      <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rotate-90" />
+                      <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                     </button>
                   </div>
 
