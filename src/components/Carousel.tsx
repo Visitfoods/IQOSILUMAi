@@ -289,10 +289,11 @@ export default function Carousel() {
 
                   <div className="absolute bottom-[10%] left-0 right-0 flex justify-center">
                     <button
-                      className="bg-white text-black px-8 py-2 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors"
+                      className="bg-white text-black px-8 py-2 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors relative group"
                       onClick={handleDiscover}
                     >
-                      Descobre
+                      <div className="absolute inset-0 bg-white/50 rounded-full animate-pulse scale-110 transition-transform duration-300" />
+                      <span className="relative z-10">Descobre</span>
                     </button>
                   </div>
                 </div>
