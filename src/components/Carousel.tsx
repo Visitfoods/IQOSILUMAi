@@ -292,7 +292,9 @@ export default function Carousel() {
                       className="bg-white text-black px-8 py-2 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors relative group"
                       onClick={handleDiscover}
                     >
-                      <div className="absolute inset-0 bg-white/50 rounded-full animate-pulse scale-110 transition-transform duration-300" />
+                      <div className="absolute inset-0 bg-white/30 rounded-full animate-pulse scale-[1.3] transition-transform duration-300" />
+                      <div className="absolute inset-0 bg-white/20 rounded-full animate-[pulse_2s_ease-in-out_infinite] scale-[1.5] transition-transform duration-300" />
+                      <div className="absolute inset-0 bg-white/10 rounded-full animate-[pulse_3s_ease-in-out_infinite] scale-[1.7] transition-transform duration-300" />
                       <span className="relative z-10">Descobre</span>
                     </button>
                   </div>
