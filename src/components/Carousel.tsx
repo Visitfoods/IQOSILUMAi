@@ -433,23 +433,6 @@ export default function Carousel() {
                         ))}
                     </div>
                   </div>
-
-                  <div className="absolute w-full flex justify-between px-4 sm:px-8 md:px-12 bottom-[30%] sm:bottom-[32%] md:bottom-[34%]">
-                    <button
-                      onClick={() => !isAnimating && handleClick("left")}
-                      className="text-white p-2"
-                      aria-label="Anterior"
-                    >
-                      <ChevronLeftIcon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
-                    </button>
-                    <button
-                      onClick={() => !isAnimating && handleClick("right")}
-                      className="text-white p-2"
-                      aria-label="Próximo"
-                    >
-                      <ChevronRightIcon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
-                    </button>
-                  </div>
                 </div>
               </div>
             </motion.div>
