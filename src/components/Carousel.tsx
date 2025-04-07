@@ -414,13 +414,13 @@ export default function Carousel() {
                     )}
                   </div>
 
-                  <div className="relative w-full flex-1 flex items-center justify-center -mt-48 sm:-mt-52 md:-mt-56">
+                  <div className="relative w-full flex-1 flex items-center justify-center -mt-55 sm:-mt-60 md:-mt-70">
                     <Image
                       src={getImagePath(selectedMachine!, selectedColor)}
                       alt={selectedMachine?.name || ""}
                       width={400}
                       height={400}
-                      className="w-48 sm:w-56 md:w-64 h-auto object-contain"
+                      className="w-40 sm:w-48 md:w-56 h-auto object-contain"
                       priority
                     />
                   </div>
