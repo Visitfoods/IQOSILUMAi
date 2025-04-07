@@ -219,6 +219,17 @@ export default function Carousel() {
             >
               <div className="relative w-full h-full flex items-center justify-center">
                 <div className="relative w-[85%] h-[85%] flex items-center justify-center">
+                  {/* Seta para voltar no carrossel */}
+                  <div className="absolute top-4 left-4 z-30">
+                    <button
+                      onClick={handleBack}
+                      className="text-white p-2 hover:text-gray-300 transition-colors"
+                      aria-label="Voltar"
+                    >
+                      <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+                    </button>
+                  </div>
+
                   <button 
                     className="absolute left-0 top-0 w-1/3 h-full z-20 bg-transparent focus:outline-none"
                     onClick={() => !isAnimating && handleClick("left")}
