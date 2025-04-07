@@ -335,12 +335,12 @@ export default function Carousel() {
                     </button>
                   </div>
 
-                  <h1 className="text-white font-iqos text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 md:mb-8">
+                  <h1 className="text-white font-iqos text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 md:mb-8 mt-12 sm:mt-16 md:mt-20">
                     {formatModelName(selectedMachine?.baseModel || "")}
                   </h1>
 
                   {/* Ícones logo após o título */}
-                  <div className="flex justify-center items-start gap-8 sm:gap-12 md:gap-16 mb-6 sm:mb-8 md:mb-10">
+                  <div className="flex justify-center items-start gap-8 sm:gap-12 md:gap-16 mb-6 sm:mb-8 md:mb-10 mt-4 sm:mt-6 md:mt-8">
                     {selectedMachine?.baseModel === "ILUMAi-ONE" ? (
                       <>
                         <div className="flex flex-col items-center">
@@ -414,7 +414,7 @@ export default function Carousel() {
                     )}
                   </div>
 
-                  <div className="relative w-full flex-1 flex items-center justify-center -mt-20 sm:-mt-24 md:-mt-28">
+                  <div className="relative w-full flex-1 flex items-center justify-center -mt-32 sm:-mt-36 md:-mt-40">
                     <Image
                       src={getImagePath(selectedMachine!, selectedColor)}
                       alt={selectedMachine?.name || ""}
@@ -426,7 +426,7 @@ export default function Carousel() {
                   </div>
 
                   {/* Cores com mais espaçamento e posicionadas mais abaixo */}
-                  <div className="absolute left-0 right-0 bottom-[15%] sm:bottom-[17%] md:bottom-[19%]">
+                  <div className="absolute left-0 right-0 bottom-[25%] sm:bottom-[27%] md:bottom-[29%]">
                     <div className="flex justify-center items-center gap-4 sm:gap-6 md:gap-8">
                       {colorConfig
                         .filter((c) => !c.availableFor || c.availableFor.includes(selectedMachine?.baseModel || ""))
