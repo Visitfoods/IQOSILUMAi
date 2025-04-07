@@ -218,7 +218,7 @@ export default function Carousel() {
               className="relative w-full h-full"
             >
               <div className="relative w-full h-full flex items-center justify-center">
-                <div className="relative w-[85%] h-[85%] flex items-center justify-center">
+                <div className="relative w-[85%] h-[85%] flex items-center justify-center -mt-20 sm:-mt-24 md:-mt-28">
                   <button 
                     className="absolute left-0 top-0 w-1/3 h-full z-20 bg-transparent focus:outline-none"
                     onClick={() => !isAnimating && handleClick("left")}
@@ -287,24 +287,7 @@ export default function Carousel() {
                     ))}
                   </AnimatePresence>
 
-                  <div className="absolute bottom-[30%] left-0 right-0 flex justify-center items-center space-x-24">
-                    <button
-                      onClick={() => !isAnimating && handleClick("left")}
-                      className="p-2 text-white hover:text-gray-300 transition-colors"
-                      aria-label="Anterior"
-                    >
-                      <ChevronLeftIcon className="w-8 h-8 sm:w-10 sm:h-10" />
-                    </button>
-                    <button
-                      onClick={() => !isAnimating && handleClick("right")}
-                      className="p-2 text-white hover:text-gray-300 transition-colors"
-                      aria-label="Próximo"
-                    >
-                      <ChevronRightIcon className="w-8 h-8 sm:w-10 sm:h-10" />
-                    </button>
-                  </div>
-
-                  <div className="absolute bottom-[20%] left-0 right-0 flex justify-center">
+                  <div className="absolute bottom-[10%] left-0 right-0 flex justify-center">
                     <button
                       className="bg-white text-black px-8 py-2 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors"
                       onClick={handleDiscover}
