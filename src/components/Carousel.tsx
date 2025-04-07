@@ -238,7 +238,7 @@ export default function Carousel() {
               <div className="relative w-full h-full flex items-center justify-center">
                 <div className="relative w-[85%] h-[85%] flex items-center justify-center -mt-20 sm:-mt-24 md:-mt-28">
                   <motion.div 
-                    className="absolute inset-0 bottom-[20%] z-20"
+                    className="absolute inset-0 bottom-[20%] z-[5]"
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
                     dragElastic={0.2}
@@ -258,14 +258,14 @@ export default function Carousel() {
                   />
                   
                   <button 
-                    className="absolute left-0 top-0 bottom-[20%] w-1/3 h-auto z-10 bg-transparent focus:outline-none"
+                    className="absolute left-0 top-0 bottom-[20%] w-1/3 h-auto z-[15] bg-transparent focus:outline-none"
                     onClick={() => !isAnimating && handleClick("left")}
                     disabled={isAnimating}
                     aria-label="Imagem anterior"
                   />
                   
                   <button 
-                    className="absolute right-0 top-0 bottom-[20%] w-1/3 h-auto z-10 bg-transparent focus:outline-none"
+                    className="absolute right-0 top-0 bottom-[20%] w-1/3 h-auto z-[15] bg-transparent focus:outline-none"
                     onClick={() => !isAnimating && handleClick("right")}
                     disabled={isAnimating}
                     aria-label="Próxima imagem"
@@ -275,13 +275,14 @@ export default function Carousel() {
                     {positionedMachines.map((machine) => (
                       <motion.div
                         key={machine.id}
-                        className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                        className="absolute inset-0 flex items-center justify-center"
                         custom={direction}
                         initial="enter"
                         animate={machine.position}
                         exit="exit"
                         variants={variants}
                         transition={{ duration: 0.5 }}
+                        style={{ zIndex: machine.position === "center" ? 10 : 1 }}
                       >
                         {machine.position === "center" && (
                           <div className="flex flex-col items-center justify-center w-full h-full">
