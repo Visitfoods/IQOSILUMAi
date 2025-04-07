@@ -332,7 +332,7 @@ export default function Carousel() {
                       alt={selectedMachine?.name || ""}
                       width={400}
                       height={400}
-                      className="w-48 sm:w-56 md:w-64 h-auto object-contain"
+                      className="w-32 sm:w-40 md:w-48 h-auto object-contain"
                       priority
                     />
                   </div>
