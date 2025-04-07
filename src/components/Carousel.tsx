@@ -434,15 +434,14 @@ export default function Carousel() {
                     </div>
                   </div>
 
-                  {/* Botão Voltar ajustado para ficar abaixo das cores */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 bottom-[5%] sm:bottom-[7%] md:bottom-[9%]">
-                    <button
-                      onClick={handleBack}
-                      className="bg-white text-[#1E1E1E] font-iqos px-8 py-2 rounded-full text-sm sm:text-base md:text-lg"
-                    >
-                      Voltar
-                    </button>
-                  </div>
+                  {/* Seta para voltar no topo */}
+                  <button
+                    onClick={handleBack}
+                    className="absolute top-4 left-4 text-white p-2 hover:text-gray-300 transition-colors"
+                    aria-label="Voltar"
+                  >
+                    <ChevronLeftIcon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
+                  </button>
 
                   <div className="absolute w-full flex justify-between px-4 sm:px-8 md:px-12 bottom-[30%] sm:bottom-[32%] md:bottom-[34%]">
                     <button
