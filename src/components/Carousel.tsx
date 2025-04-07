@@ -323,7 +323,7 @@ export default function Carousel() {
               <div className="relative h-screen flex flex-col justify-between pb-8 sm:pb-12 md:pb-16">
                 <div className="relative flex-1 flex flex-col items-center justify-center">
                   {/* Seta para voltar centralizada com círculo e efeito pulsar */}
-                  <div className="w-full flex justify-center -mt-8 sm:-mt-10 md:-mt-12 mb-0">
+                  <div className="w-full flex justify-center -mt-6 sm:-mt-8 md:-mt-10 mb-0">
                     <button
                       onClick={handleBack}
                       className="relative text-white p-2 hover:text-gray-300 transition-colors group"
@@ -414,13 +414,13 @@ export default function Carousel() {
                     )}
                   </div>
 
-                  <div className="relative w-full flex-1 flex items-center justify-center -mt-55 sm:-mt-60 md:-mt-70">
+                  <div className="relative w-full flex-1 flex items-center justify-center -mt-65 sm:-mt-70 md:-mt-80">
                     <Image
                       src={getImagePath(selectedMachine!, selectedColor)}
                       alt={selectedMachine?.name || ""}
                       width={400}
                       height={400}
-                      className="w-40 sm:w-48 md:w-56 h-auto object-contain"
+                      className="w-40 sm:w-45 md:w-50 h-auto object-contain"
                       priority
                     />
                   </div>
