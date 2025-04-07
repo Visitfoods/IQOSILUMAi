@@ -268,12 +268,15 @@ export default function Carousel() {
                             <div 
                               className="relative w-[65%] sm:w-[55%] md:w-[45%] aspect-square pointer-events-none"
                             >
+                              <div className="absolute inset-0 bg-white/5 rounded-full animate-pulse scale-[1.2]" />
+                              <div className="absolute inset-0 bg-white/5 rounded-full animate-[pulse_2s_ease-in-out_infinite] scale-[1.3]" />
+                              <div className="absolute inset-0 bg-white/5 rounded-full animate-[pulse_3s_ease-in-out_infinite] scale-[1.4]" />
                               <Image
                                 src={machine.image}
                                 alt={machine.name}
                                 width={400}
                                 height={400}
-                                className="object-contain w-full h-full"
+                                className="object-contain w-full h-full relative z-10"
                                 priority
                                 draggable={false}
                               />
