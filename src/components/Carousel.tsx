@@ -220,7 +220,7 @@ export default function Carousel() {
               <div className="relative w-full h-full flex items-center justify-center">
                 <div className="relative w-[85%] h-[85%] flex items-center justify-center">
                   {/* Seta para voltar centralizada com círculo e efeito pulsar */}
-                  <div className="absolute top-2 left-1/2 -translate-x-1/2 z-30">
+                  <div className="absolute top-1 left-1/2 -translate-x-1/2 z-30">
                     <button
                       onClick={handleBack}
                       className="relative text-white p-2 hover:text-gray-300 transition-colors group"
@@ -336,7 +336,7 @@ export default function Carousel() {
               <div className="relative h-screen flex flex-col justify-between pb-8 sm:pb-12 md:pb-16">
                 <div className="relative flex-1 flex flex-col items-center justify-center">
                   {/* Seta para voltar centralizada com círculo e efeito pulsar */}
-                  <div className="w-full flex justify-center mb-1">
+                  <div className="w-full flex justify-center mb-0.5">
                     <button
                       onClick={handleBack}
                       className="relative text-white p-2 hover:text-gray-300 transition-colors group"
