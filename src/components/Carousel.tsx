@@ -320,160 +320,142 @@ export default function Carousel() {
               key="detail"
               className="relative w-full h-full"
             >
-              <div className="relative w-[85%] h-[85%] mx-auto">
-                <motion.div
-                  className="absolute top-[15%] left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <motion.button
-                    className="bg-white/20 backdrop-blur-md text-white w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center focus:outline-none mb-10 sm:mb-12 md:mb-14"
-                    onClick={handleBack}
-                    whileHover={{ scale: 1.1, backgroundColor: "rgba(255, 255, 255, 0.3)" }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <svg 
-                      xmlns="http://www.w3.org/2000/svg" 
-                      fill="none" 
-                      viewBox="0 0 24 24" 
-                      strokeWidth={2} 
-                      stroke="currentColor" 
-                      className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-                    </svg>
-                  </motion.button>
+              <div className="relative h-screen flex flex-col justify-between pb-8 sm:pb-12 md:pb-16">
+                <div className="relative flex-1 flex flex-col items-center justify-center">
+                  <h1 className="text-white font-iqos text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 md:mb-8 mt-8 sm:mt-12 md:mt-16">
+                    {formatModelName(selectedMachine?.baseModel || "")}
+                  </h1>
 
-                  <div className="flex flex-col items-center">
-                    <h2 className="text-xl sm:text-2xl md:text-3xl text-white font-iqos text-center mb-6">
-                      {selectedMachine ? formatModelName(selectedMachine.baseModel) : ''}
-                    </h2>
-
-                    <div className="mt-6 sm:mt-8 md:mt-10 flex justify-center items-start gap-6 sm:gap-8 md:gap-10">
-                      {selectedMachine?.baseModel === "ILUMAi-ONE" ? (
-                        <>
-                          <div className="flex flex-col items-center">
-                            <Image
-                              src="/Icons/FlexPuff.svg"
-                              alt="Flex Puff"
-                              width={32}
-                              height={32}
-                              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
-                            />
-                            <span className="mt-2 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Flex Puff</span>
-                          </div>
-
-                          <div className="flex flex-col items-center">
-                            <Image
-                              src="/Icons/InicioAutomatico.svg"
-                              alt="Início Automático"
-                              width={32}
-                              height={32}
-                              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
-                            />
-                            <span className="mt-2 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Início Automático</span>
-                          </div>
-                        </>
-                      ) : (
-                        <>
-                          <div className="flex flex-col items-center">
-                            <Image
-                              src="/Icons/FlexPuff.svg"
-                              alt="Flex Puff"
-                              width={32}
-                              height={32}
-                              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
-                            />
-                            <span className="mt-2 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Flex Puff</span>
-                          </div>
-
-                          <div className="flex flex-col items-center">
-                            <Image
-                              src="/Icons/FlexBattery.svg"
-                              alt="Flex Battery"
-                              width={32}
-                              height={32}
-                              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
-                            />
-                            <span className="mt-2 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Flex Battery</span>
-                          </div>
-
-                          <div className="flex flex-col items-center">
-                            <Image
-                              src="/Icons/Modo Pausa.svg"
-                              alt="Modo Pausa"
-                              width={32}
-                              height={32}
-                              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
-                            />
-                            <span className="mt-2 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Modo Pausa</span>
-                          </div>
-
-                          <div className="flex flex-col items-center">
-                            <Image
-                              src="/Icons/EcraTatil.svg"
-                              alt="Ecrã Tátil"
-                              width={32}
-                              height={32}
-                              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
-                            />
-                            <span className="mt-2 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Ecrã Tátil</span>
-                          </div>
-                        </>
-                      )}
-                    </div>
+                  <div className="relative w-full flex-1 flex items-center justify-center my-4 sm:my-8 md:my-12">
+                    <Image
+                      src={getImagePath(selectedMachine!, selectedColor)}
+                      alt={selectedMachine?.name || ""}
+                      width={400}
+                      height={400}
+                      className="w-48 sm:w-56 md:w-64 h-auto object-contain"
+                      priority
+                    />
                   </div>
-                </motion.div>
 
-                <div className="absolute inset-0 flex flex-col items-center">
-                  {selectedMachine && (
-                    <div className="relative w-full h-full flex flex-col items-center justify-center">
-                      <motion.div 
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="relative w-[45%] sm:w-[40%] md:w-[35%] aspect-square mt-36"
-                      >
-                        <Image
-                          src={getImagePath(selectedMachine, selectedColor)}
-                          alt={`${selectedMachine.name} ${selectedColor}`}
-                          width={400}
-                          height={400}
-                          className="object-contain w-full h-full"
-                          priority
-                          draggable={false}
-                        />
-                      </motion.div>
-
-                      <div className="absolute bottom-[16%] left-0 right-0">
-                        <div className="flex justify-center items-center gap-4 sm:gap-5 md:gap-6">
-                          {colorConfig.map((colorItem) => {
-                            const isAvailable = !colorItem.availableFor || 
-                                              colorItem.availableFor.includes(selectedMachine?.baseModel || "");
-                            
-                            if (!isAvailable) return null;
-                            
-                            return (
-                              <motion.button
-                                key={colorItem.variant}
-                                className={`w-8 h-8 rounded-full border-2 ${
-                                  selectedColor === colorItem.variant
-                                    ? "border-white scale-110"
-                                    : "border-transparent"
-                                } ${getColorStyle(colorItem.variant as ColorVariant, selectedMachine)} transition-all duration-300`}
-                                onClick={() => handleColorChange(colorItem.variant as ColorVariant)}
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.95 }}
-                                aria-label={`Cor ${colorItem.label}`}
-                              />
-                            );
-                          })}
+                  <div className="mt-6 sm:mt-10 md:mt-12 flex justify-center items-start gap-8 sm:gap-12 md:gap-16 mb-6 sm:mb-8 md:mb-10">
+                    {selectedMachine?.baseModel === "ILUMAi-ONE" ? (
+                      <>
+                        <div className="flex flex-col items-center">
+                          <Image
+                            src="/Icons/FlexPuff.svg"
+                            alt="Flex Puff"
+                            width={32}
+                            height={32}
+                            className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
+                          />
+                          <span className="mt-3 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Flex Puff</span>
                         </div>
-                      </div>
-                    </div>
-                  )}
+
+                        <div className="flex flex-col items-center">
+                          <Image
+                            src="/Icons/InicioAutomatico.svg"
+                            alt="Início Automático"
+                            width={32}
+                            height={32}
+                            className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
+                          />
+                          <span className="mt-3 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Início Automático</span>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="flex flex-col items-center">
+                          <Image
+                            src="/Icons/FlexPuff.svg"
+                            alt="Flex Puff"
+                            width={32}
+                            height={32}
+                            className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
+                          />
+                          <span className="mt-3 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Flex Puff</span>
+                        </div>
+
+                        <div className="flex flex-col items-center">
+                          <Image
+                            src="/Icons/FlexBattery.svg"
+                            alt="Flex Battery"
+                            width={32}
+                            height={32}
+                            className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
+                          />
+                          <span className="mt-3 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Flex Battery</span>
+                        </div>
+
+                        <div className="flex flex-col items-center">
+                          <Image
+                            src="/Icons/Modo Pausa.svg"
+                            alt="Modo Pausa"
+                            width={32}
+                            height={32}
+                            className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
+                          />
+                          <span className="mt-3 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Modo Pausa</span>
+                        </div>
+
+                        <div className="flex flex-col items-center">
+                          <Image
+                            src="/Icons/EcraTatil.svg"
+                            alt="Ecrã Tátil"
+                            width={32}
+                            height={32}
+                            className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 brightness-0 invert"
+                          />
+                          <span className="mt-3 text-[10px] sm:text-xs md:text-sm text-white/80 font-iqos text-center">Ecrã Tátil</span>
+                        </div>
+                      </>
+                    )}
+                  </div>
+
+                  <div className="flex justify-center items-center gap-4 sm:gap-6 md:gap-8 mt-6 sm:mt-8 md:mt-10">
+                    {colorConfig
+                      .filter((c) => !c.availableFor || c.availableFor.includes(selectedMachine?.baseModel || ""))
+                      .map((colorObj) => (
+                        <button
+                          key={colorObj.color}
+                          onClick={() => handleColorChange(colorObj.variant as ColorVariant)}
+                          className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full ${getColorStyle(
+                            colorObj.variant as ColorVariant,
+                            selectedMachine!
+                          )} ${
+                            selectedColor === colorObj.variant
+                              ? "ring-2 ring-offset-2 ring-white"
+                              : ""
+                          }`}
+                          aria-label={`Selecionar cor ${colorObj.label}`}
+                        />
+                      ))}
+                  </div>
+                </div>
+
+                <div className="absolute left-1/2 transform -translate-x-1/2 bottom-[20%] sm:bottom-[22%] md:bottom-[24%]">
+                  <button
+                    onClick={handleBack}
+                    className="bg-white text-[#1E1E1E] font-iqos px-8 py-2 rounded-full text-sm sm:text-base md:text-lg"
+                  >
+                    Descobre
+                  </button>
+                </div>
+
+                <div className="absolute w-full flex justify-between px-4 sm:px-8 md:px-12 bottom-[30%] sm:bottom-[32%] md:bottom-[34%]">
+                  <button
+                    onClick={() => !isAnimating && handleClick("left")}
+                    className="text-white p-2"
+                    aria-label="Anterior"
+                  >
+                    <ChevronLeftIcon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
+                  </button>
+                  <button
+                    onClick={() => !isAnimating && handleClick("right")}
+                    className="text-white p-2"
+                    aria-label="Próximo"
+                  >
+                    <ChevronRightIcon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
+                  </button>
                 </div>
               </div>
             </motion.div>
