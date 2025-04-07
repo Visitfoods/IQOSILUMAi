@@ -248,7 +248,7 @@ export default function Carousel() {
                         {machine.position === "center" && (
                           <div className="flex flex-col items-center justify-center w-full h-full">
                             <div 
-                              className="relative w-[50%] sm:w-[40%] md:w-[35%] aspect-square pointer-events-none"
+                              className="relative w-[65%] sm:w-[55%] md:w-[45%] aspect-square pointer-events-none"
                             >
                               <Image
                                 src={machine.image}
@@ -265,7 +265,7 @@ export default function Carousel() {
                         
                         {machine.position !== "center" && (
                           <motion.div 
-                            className="relative w-[30%] sm:w-[25%] md:w-[20%] aspect-square pointer-events-none"
+                            className="relative w-[45%] sm:w-[35%] md:w-[30%] aspect-square pointer-events-none"
                             whileHover={{
                               scale: 1.05,
                               opacity: 0.8,
@@ -323,7 +323,7 @@ export default function Carousel() {
               <div className="relative h-screen flex flex-col justify-between pb-8 sm:pb-12 md:pb-16">
                 <div className="relative flex-1 flex flex-col items-center justify-center">
                   {/* Seta para voltar centralizada com círculo e efeito pulsar */}
-                  <div className="w-full flex justify-center -mt-6 sm:-mt-8 md:-mt-10 mb-0">
+                  <div className="w-full flex justify-center -mt-3 sm:-mt-4 md:-mt-5 mb-0">
                     <button
                       onClick={handleBack}
                       className="relative text-white p-2 hover:text-gray-300 transition-colors group"
