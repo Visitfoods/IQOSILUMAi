@@ -414,7 +414,7 @@ export default function Carousel() {
                     )}
                   </div>
 
-                  <div className="relative w-full flex-1 flex items-center justify-center -mt-12 sm:-mt-16 md:-mt-20">
+                  <div className="relative w-full flex-1 flex items-center justify-center -mt-20 sm:-mt-24 md:-mt-28">
                     <Image
                       src={getImagePath(selectedMachine!, selectedColor)}
                       alt={selectedMachine?.name || ""}
