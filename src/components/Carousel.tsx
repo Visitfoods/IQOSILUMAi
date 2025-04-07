@@ -434,13 +434,13 @@ export default function Carousel() {
                     </div>
                   </div>
 
-                  {/* Botão Descobre ajustado para ficar abaixo das cores */}
+                  {/* Botão Voltar ajustado para ficar abaixo das cores */}
                   <div className="absolute left-1/2 transform -translate-x-1/2 bottom-[5%] sm:bottom-[7%] md:bottom-[9%]">
                     <button
                       onClick={handleBack}
                       className="bg-white text-[#1E1E1E] font-iqos px-8 py-2 rounded-full text-sm sm:text-base md:text-lg"
                     >
-                      Descobre
+                      Voltar
                     </button>
                   </div>
 
