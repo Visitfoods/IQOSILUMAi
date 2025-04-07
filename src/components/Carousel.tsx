@@ -322,11 +322,22 @@ export default function Carousel() {
             >
               <div className="relative h-screen flex flex-col justify-between pb-8 sm:pb-12 md:pb-16">
                 <div className="relative flex-1 flex flex-col items-center justify-center">
-                  <h1 className="text-white font-iqos text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 md:mb-8 mt-8 sm:mt-12 md:mt-16">
+                  {/* Seta para voltar acima do título */}
+                  <div className="w-full px-4 mb-2">
+                    <button
+                      onClick={handleBack}
+                      className="text-white p-2 hover:text-gray-300 transition-colors"
+                      aria-label="Voltar"
+                    >
+                      <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+                    </button>
+                  </div>
+
+                  <h1 className="text-white font-iqos text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 md:mb-8">
                     {formatModelName(selectedMachine?.baseModel || "")}
                   </h1>
 
-                  {/* Ícones movidos para cá, logo após o título */}
+                  {/* Ícones logo após o título */}
                   <div className="flex justify-center items-start gap-8 sm:gap-12 md:gap-16 mb-6 sm:mb-8 md:mb-10">
                     {selectedMachine?.baseModel === "ILUMAi-ONE" ? (
                       <>
@@ -434,15 +445,6 @@ export default function Carousel() {
                         ))}
                     </div>
                   </div>
-
-                  {/* Seta para voltar no topo */}
-                  <button
-                    onClick={handleBack}
-                    className="absolute top-4 left-4 text-white p-2 hover:text-gray-300 transition-colors"
-                    aria-label="Voltar"
-                  >
-                    <ChevronLeftIcon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
-                  </button>
 
                   <div className="absolute w-full flex justify-between px-4 sm:px-8 md:px-12 bottom-[30%] sm:bottom-[32%] md:bottom-[34%]">
                     <button
