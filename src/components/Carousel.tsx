@@ -36,10 +36,28 @@ export default function Carousel() {
   const [selectedMachine, setSelectedMachine] = useState<Machine | null>(null);
   const [viewMode, setViewMode] = useState<"carousel" | "detail">("carousel");
   const [selectedColor, setSelectedColor] = useState<ColorVariant>("Breeze");
+  const [initialAnimationComplete, setInitialAnimationComplete] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
-  }, []);
+    
+    // Inicia a animação automática após a montagem
+    if (!initialAnimationComplete) {
+      let currentRotation = 0;
+      const interval = setInterval(() => {
+        if (currentRotation < machines.length) {
+          setDirection("right");
+          setCurrentIndex((prev) => (prev + 1) % machines.length);
+          currentRotation++;
+        } else {
+          clearInterval(interval);
+          setInitialAnimationComplete(true);
+        }
+      }, 1000); // Intervalo de 1 segundo entre cada transição
+
+      return () => clearInterval(interval);
+    }
+  }, [initialAnimationComplete]);
 
   // Função para formatar o nome do modelo de forma consistente
   const formatModelName = (baseModel: string) => {
