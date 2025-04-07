@@ -219,14 +219,16 @@ export default function Carousel() {
             >
               <div className="relative w-full h-full flex items-center justify-center">
                 <div className="relative w-[85%] h-[85%] flex items-center justify-center">
-                  {/* Seta para voltar centralizada */}
+                  {/* Seta para voltar centralizada com círculo e efeito pulsar */}
                   <div className="absolute top-4 left-1/2 -translate-x-1/2 z-30">
                     <button
                       onClick={handleBack}
-                      className="text-white p-2 hover:text-gray-300 transition-colors"
+                      className="relative text-white p-2 hover:text-gray-300 transition-colors group"
                       aria-label="Voltar"
                     >
-                      <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+                      <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-full scale-150 group-hover:scale-[1.7] transition-transform duration-300" />
+                      <div className="absolute inset-0 bg-white/5 backdrop-blur-sm rounded-full animate-pulse scale-[1.7] group-hover:scale-[1.9] transition-transform duration-300" />
+                      <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 relative z-10" />
                     </button>
                   </div>
 
@@ -333,14 +335,16 @@ export default function Carousel() {
             >
               <div className="relative h-screen flex flex-col justify-between pb-8 sm:pb-12 md:pb-16">
                 <div className="relative flex-1 flex flex-col items-center justify-center">
-                  {/* Seta para voltar centralizada acima do título */}
+                  {/* Seta para voltar centralizada com círculo e efeito pulsar */}
                   <div className="w-full flex justify-center mb-2">
                     <button
                       onClick={handleBack}
-                      className="text-white p-2 hover:text-gray-300 transition-colors"
+                      className="relative text-white p-2 hover:text-gray-300 transition-colors group"
                       aria-label="Voltar"
                     >
-                      <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+                      <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-full scale-150 group-hover:scale-[1.7] transition-transform duration-300" />
+                      <div className="absolute inset-0 bg-white/5 backdrop-blur-sm rounded-full animate-pulse scale-[1.7] group-hover:scale-[1.9] transition-transform duration-300" />
+                      <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 relative z-10" />
                     </button>
                   </div>
 
