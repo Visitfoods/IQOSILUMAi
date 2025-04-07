@@ -326,18 +326,8 @@ export default function Carousel() {
                     {formatModelName(selectedMachine?.baseModel || "")}
                   </h1>
 
-                  <div className="relative w-full flex-1 flex items-center justify-center my-4 sm:my-8 md:my-12">
-                    <Image
-                      src={getImagePath(selectedMachine!, selectedColor)}
-                      alt={selectedMachine?.name || ""}
-                      width={400}
-                      height={400}
-                      className="w-48 sm:w-56 md:w-64 h-auto object-contain"
-                      priority
-                    />
-                  </div>
-
-                  <div className="mt-6 sm:mt-10 md:mt-12 flex justify-center items-start gap-8 sm:gap-12 md:gap-16 mb-6 sm:mb-8 md:mb-10">
+                  {/* Ícones movidos para cá, logo após o título */}
+                  <div className="flex justify-center items-start gap-8 sm:gap-12 md:gap-16 mb-6 sm:mb-8 md:mb-10">
                     {selectedMachine?.baseModel === "ILUMAi-ONE" ? (
                       <>
                         <div className="flex flex-col items-center">
@@ -409,6 +399,17 @@ export default function Carousel() {
                         </div>
                       </>
                     )}
+                  </div>
+
+                  <div className="relative w-full flex-1 flex items-center justify-center">
+                    <Image
+                      src={getImagePath(selectedMachine!, selectedColor)}
+                      alt={selectedMachine?.name || ""}
+                      width={400}
+                      height={400}
+                      className="w-48 sm:w-56 md:w-64 h-auto object-contain"
+                      priority
+                    />
                   </div>
 
                   {/* Cores com mais espaçamento e posicionadas mais abaixo */}
