@@ -219,14 +219,14 @@ export default function Carousel() {
             >
               <div className="relative w-full h-full flex items-center justify-center">
                 <div className="relative w-[85%] h-[85%] flex items-center justify-center">
-                  {/* Seta para voltar no carrossel */}
-                  <div className="absolute top-4 left-4 z-30">
+                  {/* Seta para voltar centralizada */}
+                  <div className="absolute top-4 left-1/2 -translate-x-1/2 z-30">
                     <button
                       onClick={handleBack}
                       className="text-white p-2 hover:text-gray-300 transition-colors"
                       aria-label="Voltar"
                     >
-                      <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+                      <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rotate-90" />
                     </button>
                   </div>
 
@@ -333,14 +333,14 @@ export default function Carousel() {
             >
               <div className="relative h-screen flex flex-col justify-between pb-8 sm:pb-12 md:pb-16">
                 <div className="relative flex-1 flex flex-col items-center justify-center">
-                  {/* Seta para voltar acima do título */}
-                  <div className="w-full px-4 mb-2">
+                  {/* Seta para voltar centralizada acima do título */}
+                  <div className="w-full flex justify-center mb-2">
                     <button
                       onClick={handleBack}
                       className="text-white p-2 hover:text-gray-300 transition-colors"
                       aria-label="Voltar"
                     >
-                      <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+                      <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rotate-90" />
                     </button>
                   </div>
 
