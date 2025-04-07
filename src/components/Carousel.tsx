@@ -287,6 +287,24 @@ export default function Carousel() {
                     ))}
                   </AnimatePresence>
 
+                  {/* Setas de navegação */}
+                  <div className="absolute w-full flex justify-between px-4 sm:px-8 md:px-12 bottom-[30%] sm:bottom-[32%] md:bottom-[34%]">
+                    <button
+                      onClick={() => !isAnimating && handleClick("left")}
+                      className="text-white p-2 hover:text-gray-300 transition-colors"
+                      aria-label="Anterior"
+                    >
+                      <ChevronLeftIcon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
+                    </button>
+                    <button
+                      onClick={() => !isAnimating && handleClick("right")}
+                      className="text-white p-2 hover:text-gray-300 transition-colors"
+                      aria-label="Próximo"
+                    >
+                      <ChevronRightIcon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
+                    </button>
+                  </div>
+
                   <div className="absolute bottom-[10%] left-0 right-0 flex justify-center">
                     <button
                       className="bg-white text-black px-8 py-2 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors relative group"
