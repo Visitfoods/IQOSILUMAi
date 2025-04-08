@@ -5,23 +5,23 @@ import Image from 'next/image';
 
 export default function DotPattern() {
   return (
-    <div className="fixed inset-0 pointer-events-none">
-      <div className="relative w-full h-full max-w-[1920px] max-h-[1080px] mx-auto">
-        <Image
-          src="/Anel.png"
-          alt="Moldura decorativa"
-          fill
-          style={{ 
-            objectFit: 'contain',
-            objectPosition: 'center',
-            maxWidth: '100vw',
-            maxHeight: '100vh'
-          }}
-          priority
-          sizes="100vw"
-          quality={100}
-          className="opacity-80"
-        />
+    <div className="absolute inset-0 w-full h-full">
+      <div className="relative w-full h-full flex items-center justify-center">
+        <div className="relative w-[90vw] h-[90vh] md:w-[80vw] md:h-[80vh]">
+          <Image
+            src="/Anel.png"
+            alt="Moldura decorativa"
+            fill
+            style={{ 
+              objectFit: 'contain',
+              objectPosition: 'center',
+            }}
+            priority
+            sizes="(max-width: 768px) 90vw, 80vw"
+            quality={100}
+            className="opacity-80"
+          />
+        </div>
       </div>
     </div>
   );
