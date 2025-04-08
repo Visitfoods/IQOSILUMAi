@@ -4,7 +4,7 @@ interface DotPatternProps {
   numberOfDots?: number;
 }
 
-export default function DotPattern({ numberOfDots = 12 }: DotPatternProps) {
+export default function DotPattern({ numberOfDots = 10 }: DotPatternProps) {
   return (
     <div className="fixed inset-0 pointer-events-none">
       {/* Top */}
