@@ -63,6 +63,7 @@ export default function CameraBackground() {
 
   useEffect(() => {
     let mounted = true;
+    const videoElement = videoRef.current;
 
     const initCamera = async () => {
       await setupCamera();
@@ -72,13 +73,15 @@ export default function CameraBackground() {
 
     return () => {
       mounted = false;
-      if (videoRef.current?.srcObject) {
-        const stream = videoRef.current.srcObject as MediaStream;
+      if (videoElement?.srcObject) {
+        const stream = videoElement.srcObject as MediaStream;
         stream.getTracks().forEach(track => {
           track.stop();
           stream.removeTrack(track);
         });
-        videoRef.current.srcObject = null;
+        if (videoElement) {
+          videoElement.srcObject = null;
+        }
       }
     };
   }, []);
