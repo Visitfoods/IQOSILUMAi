@@ -294,7 +294,7 @@ export default function Carousel() {
                                 alt={machine.name}
                                 width={400}
                                 height={400}
-                                className="object-contain w-full h-full relative z-10 animate-[pulse_2s_ease-in-out_infinite]"
+                                className="object-contain w-full h-full relative z-10 animate-scale"
                                 priority
                                 draggable={false}
                               />

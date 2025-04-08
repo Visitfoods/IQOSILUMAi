@@ -11,6 +11,15 @@ const config: Config = {
       fontFamily: {
         'iqos': ['IQOSSans', 'sans-serif'],
       },
+      keyframes: {
+        scale: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.1)' },
+        },
+      },
+      animation: {
+        'scale': 'scale 2s ease-in-out infinite',
+      },
     },
   },
   plugins: [],
