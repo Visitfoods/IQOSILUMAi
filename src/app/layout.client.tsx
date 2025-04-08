@@ -3,7 +3,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import GradientBackground from "@/components/GradientBackground";
-import DotFrame from "@/components/DotFrame";
+import DotPattern from "@/components/DotPattern";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +15,7 @@ export default function ClientLayout({
   return (
     <div className={`${inter.className} relative min-h-screen w-full overflow-hidden bg-black`}>
       <GradientBackground />
-      <DotFrame />
+      <DotPattern />
       <div className="relative z-10">
         {children}
       </div>
