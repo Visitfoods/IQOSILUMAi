@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 
 export default function DotPattern() {
   useEffect(() => {
-    console.log('DotPattern montado - Ajustando posição vertical');
+    console.log('DotPattern montado - Movendo mais para cima');
   }, []);
 
   return (
@@ -17,7 +17,7 @@ export default function DotPattern() {
           backgroundSize: '105% 110%',
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
-          transform: 'scaleY(1.05) scaleX(1.02) translateY(-5%)',
+          transform: 'scaleY(1.05) scaleX(1.02) translateY(-15%)',
         }}
       />
     </div>
