@@ -9,7 +9,7 @@ export default function DotPattern({ numberOfDots = 20 }: DotPatternProps) {
     <div className="fixed inset-0 pointer-events-none">
       {/* Top */}
       <div className="absolute top-0 left-0 right-0 h-16 flex justify-center items-center">
-        <div className="w-full flex justify-between px-4 sm:px-8 md:px-12 gap-2 sm:gap-4 md:gap-6">
+        <div className="w-full flex justify-between px-4 sm:px-10 md:px-16 gap-2 sm:gap-6 md:gap-8">
           {Array.from({ length: numberOfDots }).map((_, i) => (
             <div
               key={`top-${i}`}
@@ -21,7 +21,7 @@ export default function DotPattern({ numberOfDots = 20 }: DotPatternProps) {
 
       {/* Bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-16 flex justify-center items-center">
-        <div className="w-full flex justify-between px-4 sm:px-8 md:px-12 gap-2 sm:gap-4 md:gap-6">
+        <div className="w-full flex justify-between px-4 sm:px-10 md:px-16 gap-2 sm:gap-6 md:gap-8">
           {Array.from({ length: numberOfDots }).map((_, i) => (
             <div
               key={`bottom-${i}`}
