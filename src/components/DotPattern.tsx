@@ -8,24 +8,24 @@ export default function DotPattern({ numberOfDots = 6 }: DotPatternProps) {
   return (
     <div className="fixed inset-0 pointer-events-none">
       {/* Top */}
-      <div className="absolute top-0 left-0 right-0 h-16 flex justify-center items-center">
-        <div className="w-full flex justify-between px-16 sm:px-32 md:px-40 gap-10 sm:gap-24 md:gap-32">
+      <div className="absolute top-0 left-0 right-0 w-full h-16">
+        <div className="h-full flex justify-between px-4 sm:px-6 md:px-8">
           {Array.from({ length: numberOfDots }).map((_, i) => (
             <div
               key={`top-${i}`}
-              className="w-1 h-1 rounded-full bg-white/20"
+              className="w-1 h-1 rounded-full bg-white/20 mt-4 sm:mt-6 md:mt-8"
             />
           ))}
         </div>
       </div>
 
       {/* Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 flex justify-center items-center">
-        <div className="w-full flex justify-between px-16 sm:px-32 md:px-40 gap-10 sm:gap-24 md:gap-32">
+      <div className="absolute bottom-0 left-0 right-0 w-full h-16">
+        <div className="h-full flex justify-between px-4 sm:px-6 md:px-8">
           {Array.from({ length: numberOfDots }).map((_, i) => (
             <div
               key={`bottom-${i}`}
-              className="w-1 h-1 rounded-full bg-white/20"
+              className="w-1 h-1 rounded-full bg-white/20 mb-4 sm:mb-6 md:mb-8"
             />
           ))}
         </div>
