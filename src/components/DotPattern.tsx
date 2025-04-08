@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 
 export default function DotPattern() {
   useEffect(() => {
-    console.log('DotPattern montado - Ajustando para escala intermediária');
+    console.log('DotPattern montado - Ajustando escala vertical');
   }, []);
 
   return (
@@ -14,10 +14,10 @@ export default function DotPattern() {
         className="absolute inset-0 opacity-80"
         style={{
           backgroundImage: 'url(/Anel.png)',
-          backgroundSize: '105% 105%',
+          backgroundSize: '105% 110%',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          transform: 'scale(1.02)',
+          transform: 'scaleY(1.05) scaleX(1.02)',
         }}
       />
     </div>
