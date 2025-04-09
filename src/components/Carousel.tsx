@@ -463,13 +463,13 @@ export default function Carousel() {
                       alt={selectedMachine?.name || ""}
                       width={400}
                       height={400}
-                      className="w-32 sm:w-45 md:w-50 h-auto object-contain"
+                      className="w-32 sm:w-45 md:w-50 h-auto object-contain -mt-16 sm:mt-0"
                       priority
                     />
                   </div>
 
                   {/* Cores com mais espaçamento e posicionadas mais abaixo */}
-                  <div className="absolute left-0 right-0 bottom-[25%] sm:bottom-[27%] md:bottom-[29%]">
+                  <div className="absolute left-0 right-0 bottom-[15%] sm:bottom-[27%] md:bottom-[29%]">
                     <div className="flex justify-center items-center gap-4 sm:gap-6 md:gap-8">
                       {colorConfig
                         .filter((c) => !c.availableFor || c.availableFor.includes(selectedMachine?.baseModel || ""))
