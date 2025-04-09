@@ -366,7 +366,7 @@ export default function Carousel() {
               <div className="relative h-screen flex flex-col justify-between pb-8 sm:pb-12 md:pb-16">
                 <div className="relative flex-1 flex flex-col items-center justify-center">
                   {/* Seta para voltar centralizada com círculo e efeito pulsar */}
-                  <div className="w-full flex justify-center -mt-3 sm:-mt-4 md:-mt-5 mb-0">
+                  <div className="w-full flex justify-center mt-8 sm:-mt-4 md:-mt-5 mb-0">
                     <button
                       onClick={handleBack}
                       className="relative text-white p-2 hover:text-gray-300 transition-colors group"
@@ -378,12 +378,12 @@ export default function Carousel() {
                     </button>
                   </div>
 
-                  <h1 className="text-white font-iqos text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 md:mb-8 mt-12 sm:mt-16 md:mt-20">
+                  <h1 className="text-white font-iqos text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 md:mb-8 mt-16 sm:mt-16 md:mt-20">
                     {formatModelName(selectedMachine?.baseModel || "")}
                   </h1>
 
                   {/* Ícones logo após o título */}
-                  <div className="flex justify-center items-start gap-8 sm:gap-12 md:gap-16 mb-6 sm:mb-8 md:mb-10 mt-4 sm:mt-6 md:mt-8">
+                  <div className="flex justify-center items-start gap-8 sm:gap-12 md:gap-16 mb-6 sm:mb-8 md:mb-10 mt-8 sm:mt-6 md:mt-8">
                     {selectedMachine?.baseModel === "ILUMAi-ONE" ? (
                       <>
                         <div className="flex flex-col items-center">
