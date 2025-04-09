@@ -10,10 +10,10 @@ export default function DotPattern() {
         className="absolute inset-0 opacity-80"
         style={{
           backgroundImage: 'url(/Anel.png)',
-          backgroundSize: '105% 120%',
-          backgroundPosition: 'center top',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat',
-          transform: 'scaleY(1.15) scaleX(1.02) translateY(-10%)',
+          transform: 'scale(1.15)',
         }}
       />
     </div>
